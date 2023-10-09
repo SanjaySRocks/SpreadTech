@@ -1,0 +1,135 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Poppins:wght@400;500;700;800&family=Roboto:wght@400;700;900&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+    font-family: 'Poppins', 'Roboto', 'Inter', sans-serif;
+}
+
+:root{
+    --bg-color: #FF5A5F;
+    --prussian-blue: #0b3954ff;
+    --teal: #087e8bff;
+    --columbia-blue: #bfd7eaff;
+    --bittersweet: #ff5a5fff;
+    --fire-engine-red: #c81d25ff;
+
+    --text-color-light: white;
+    --text-color-dark: black;
+
+    
+}
+
+body{
+    background-color: var(--bg-color);   
+}
+
+.container{
+    display: block;
+}
+
+.head-text{
+    color: var(--text-color-light);
+    margin-top: 50px;
+}
+
+.container .head-text{
+    margin: 20px;
+}
+
+.card .head-text{
+    margin: 25px;
+}
+
+.center{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.card{
+    margin: 20px;
+    width: 450px;
+    height: auto;
+    background-color: var(--prussian-blue);
+    border: 2px solid white;
+    border-radius: 5%;
+    color: var(--text-color-light);
+}
+
+
+.input-field{
+    font-size: 18px;
+    height: 40px;
+    width: 100%;
+    border: 0;
+    border-radius: 7px;
+    padding: 20px;
+    outline: none;
+    box-shadow: 5px 5px 4px;
+}
+
+.form{
+    margin: 50px;
+    margin-top: 0;
+}
+
+.form-group{
+    margin-top: 10px;
+}
+
+.error-msg{
+    font-size: 12px;
+    color: var(--fire-engine-red);
+    background-color: #ccc;
+    font-weight: 600;
+}
+
+.registered-msg{
+    font-size: 16px;
+    font-weight: 600;
+    margin-top: 14px;
+    /* text-align: center; */
+    display: block;
+}
+
+.reg-success{
+    color: #75e900;
+}
+
+.reg-error{
+    color: #f02424;
+}
+
+
+.btn-submit{
+    padding: 10px;
+    width: 100%;
+    margin-top: 34px;
+    background-color: var(--columbia-blue);
+    outline: none;
+    border: 0;
+    border-radius: 12px;
+    font-size: 18px;
+    font-weight: 900;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.5s ease;
+}
+
+.btn-submit:hover{
+    box-shadow: 5px 5px 5px;
+}
+
+.btn-submit:active{
+    background-color: var(--teal);
+}
+
+
+
+@media only screen and (max-width: 720px) {
+   
+  }

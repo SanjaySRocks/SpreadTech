@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <link href="./index.css" rel="stylesheet">
+
+</head>
+<body>
+    
+<main>
+    <!-- <h1 class="head-text center">Registeration Page</h1> -->
+    <h1 class="head-text center">Already have an account? :)</h1>
+
+    <div class="container center">
+
+        <div class="card">
+            <h1 class="head-text center">Login into Account</h1>
+
+                <form id="register-form" class="form">
+                    
+                    <div class="form-group">
+                    <label>Email:</label>
+                    <input autofocus class="input-field success" id="email" name="email">
+                    <span class="error-msg"></span>
+                    </div>
+
+                    <div class="form-group">
+                    <label>Password:</label>
+                    <input class="input-field" type="password" id="pass" name="pass">
+                    <span class="error-msg"></span>
+                    </div>
+
+                    <span class="registered-msg"></span>
+
+                    <button class="btn-submit" id="submit">Login</button>
+                </form>
+        </div>
+    </div>
+</main>
+
+<script src="./assets/bcrypt.js"></script>
+<script src="./script.js"></script>
+
+</body>
+</html>

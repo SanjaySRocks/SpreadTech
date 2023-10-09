@@ -9,24 +9,30 @@ const btnSubmit = document.getElementById("submit")
 btnSubmit.addEventListener("click", function(e){
     e.preventDefault();
 
-    if(Fname.value.trim() == ""){
+    Fname.value = Fname.value.trim()
+    Lname.value = Lname.value.trim()
+    Password.value = Password.value.trim()
+    ConfirmPassword.value = ConfirmPassword.value.trim()
+    Email.value = Email.value.trim()
+
+    if(Fname.value == ""){
         return setError(Fname, "Please enter First name!");
     }else{ setError(Fname, ""); }
 
-    if(Lname.value.trim() == ""){
+    if(Lname.value == ""){
         return setError(Lname, "Please enter Last name!");
     }
     else { setError(Lname, ""); }
 
-    if(Password.value.trim() == ""){
+    if(Password.value == ""){
         return setError(Password, "Please enter Password!");
     }else { setError(Password, ""); }
 
-    if(ConfirmPassword.value.trim() == ""){
+    if(ConfirmPassword.value == ""){
         return setError(ConfirmPassword, "Please enter Confirm Password!");
     }else { setError(ConfirmPassword, ""); }
 
-    if(Email.value.trim() == ""){
+    if(Email.value == ""){
         return setError(Email, "Please enter email!");
     }else if(!isEmail(Email.value)){
         return setError(Email, "Please enter valid email!");
@@ -35,17 +41,29 @@ btnSubmit.addEventListener("click", function(e){
         setError(Email, "");
     }
 
-    if(Password.value.trim() != ConfirmPassword.value.trim())
+    if(Password.value != ConfirmPassword.value)
     {
         setError(Password, "Password do no match!")
         setError(ConfirmPassword, "Password do no match!")
         return;
     }
 
-    setSuccess();
     
+    const salt = dcodeIO.bcrypt.genSaltSync(10);
+    const hashPass = dcodeIO.bcrypt.hashSync(Password.value, salt)
 
+    const user = {
+        fname: Fname.value,
+        lname : Lname.value,
+        email : Email.value,
+        password: hashPass
+    }
+
+    localStorage.setItem("user", JSON.stringify(user))
+
+    setSuccess();
 });
+
 
 function setSuccess()
 {

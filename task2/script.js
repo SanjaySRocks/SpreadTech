@@ -29,6 +29,9 @@ btnSubmit.addEventListener("click", function(e){
     // Check for user in local storage
     const user = JSON.parse(localStorage.getItem("user"))
     
+    if(!user)
+        return alert("User not found in database!");
+    
     if(Email.value == user.email && dcodeIO.bcrypt.compareSync(Password.value, user.password)){
         // Set Success Message
         setSuccess(1)

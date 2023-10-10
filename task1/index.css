@@ -8,6 +8,7 @@
     font-family: 'Poppins', 'Roboto', 'Inter', sans-serif;
 }
 
+
 :root{
     --bg-color: #FF5A5F;
     --prussian-blue: #0b3954ff;
@@ -35,7 +36,7 @@ body{
 }
 
 .container .head-text{
-    margin: 20px;
+    margin: 40px;
 }
 
 .card .head-text{
@@ -127,7 +128,7 @@ body{
     }
 
     .container .head-text{
-        margin: 30px;
+        font-size: 24px;
     }
 
     .card{

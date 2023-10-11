@@ -49,14 +49,6 @@ btnSubmit.addEventListener("click", function(e){
     }
     else { setError(Lname, ""); }
 
-    if(Password.value == ""){
-        return setError(Password, "Please enter Password!");
-    }else { setError(Password, ""); }
-
-    if(ConfirmPassword.value == ""){
-        return setError(ConfirmPassword, "Please enter Confirm Password!");
-    }else { setError(ConfirmPassword, ""); }
-
     if(Email.value == ""){
         return setError(Email, "Please enter email!");
     }else if(!isEmail(Email.value)){
@@ -65,6 +57,16 @@ btnSubmit.addEventListener("click", function(e){
     else{
         setError(Email, "");
     }
+    
+    if(Password.value == ""){
+        return setError(Password, "Please enter Password!");
+    }else { setError(Password, ""); }
+
+    if(ConfirmPassword.value == ""){
+        return setError(ConfirmPassword, "Please enter Confirm Password!");
+    }else { setError(ConfirmPassword, ""); }
+
+    
 
     if(Password.value != ConfirmPassword.value)
     {
@@ -142,6 +144,8 @@ function setError(el, msg)
     const parentEl = el.parentElement;
     const errorMsg = parentEl.querySelector(".error-msg")
 
+    const inputField = parentEl.querySelector(".input-field")
+    inputField.className = msg.length == 0 ? "input-field" : "input-field input-error"
     errorMsg.innerHTML = msg;
 }
 

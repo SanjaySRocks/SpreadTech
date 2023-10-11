@@ -56,7 +56,7 @@ body{
     height: auto;
     background-color: var(--prussian-blue);
     border: 2px solid white;
-    border-radius: 20px 5px 20px;
+    border-radius: 20px;
     box-shadow: 5px;
     color: var(--text-color-light);
 }
@@ -71,6 +71,10 @@ body{
     padding: 20px;
     outline: none;
     box-shadow: 5px 5px 4px;
+}
+
+.input-error{
+    outline: 2px solid red;
 }
 
 .form{
@@ -105,6 +109,8 @@ body{
     color: red;
     font-weight: 600;
 }
+
+
 
 .btn-submit{
     padding: 10px;

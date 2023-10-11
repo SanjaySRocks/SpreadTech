@@ -89,9 +89,20 @@ body{
     font-weight: 600;
 }
 
+.registered-msg{
+    font-size: 16px;
+    font-weight: 600;
+}
+
 .registered-success{
     font-size: 16px;
     color: #75e900;
+    font-weight: 600;
+}
+
+.registered-error{
+    font-size: 16px;
+    color: red;
     font-weight: 600;
 }
 
@@ -117,9 +128,6 @@ body{
     background-color: var(--teal);
 }
 
-.input-field .success{
-
-}
 
 
 @media only screen and (max-width: 720px) {

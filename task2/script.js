@@ -65,6 +65,9 @@ btnSubmit.addEventListener("click", function(e){
             });
 
         }
+        else{
+            setSuccess(0, "Username/Password is Incorrect!")
+        }
     })
     .catch((error) => {
         setSuccess(0, "Username/Password is Incorrect!")

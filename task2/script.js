@@ -1,4 +1,27 @@
+// Firebase Config
+// Import the functions you need from the SDKs you need
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-app.js";
+import { getDatabase, set, ref, child, push, query, orderByChild, equalTo, get } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-database.js";
+// TODO: Add SDKs for Firebase products that you want to use
+// https://firebase.google.com/docs/web/setup#available-libraries
 
+// Your web app's Firebase configuration
+const firebaseConfig = {
+  apiKey: "AIzaSyCAn77TlRIPndZ8p9r0GLCPU1axjwM0hEk",
+  authDomain: "spreadtech-6438a.firebaseapp.com",
+  projectId: "spreadtech-6438a",
+  storageBucket: "spreadtech-6438a.appspot.com",
+  messagingSenderId: "1057692660223",
+  appId: "1:1057692660223:web:be08c9aab7ba9ac990f7ca"
+};
+
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+const db = getDatabase()
+const dbRef = ref(db,"users")
+
+
+// Get Form Data
 const Email = document.getElementById("email")
 const Password = document.getElementById("pass")
 
@@ -27,33 +50,40 @@ btnSubmit.addEventListener("click", function(e){
   
 
     // Check for user in local storage
-    const user = JSON.parse(localStorage.getItem("user"))
-    
-    if(!user)
-        return alert("User not found in database!");
-    
-    if(Email.value == user.email && dcodeIO.bcrypt.compareSync(Password.value, user.password)){
-        // Set Success Message
-        setSuccess(1)
-    }
-    else{
-        // Set Failed Message
-        setSuccess(0)
-    }
-    
+    get(query(dbRef, orderByChild('email'), equalTo(Email.value)))
+    .then((snapshot) => {
+        if (snapshot.exists()) {
+
+            snapshot.forEach((data) => {
+              const user = data.val();
+                console.log(user);
+              if (dcodeIO.bcrypt.compareSync(Password.value, user.password)){
+                setSuccess(1, "Successfully Logged In!")
+              } else {
+                setSuccess(0, "Username/Password is Incorrect!")
+              }
+            });
+
+        }
+    })
+    .catch((error) => {
+        setSuccess(0, "Username/Password is Incorrect!")
+    });    
 
 });
 
-function setSuccess(success)
+
+
+function setSuccess(success, msg)
 {
     const registerMsg = document.querySelector(".registered-msg")
 
     if(success){
         registerMsg.className = "registered-msg reg-success"
-        registerMsg.innerHTML = "Successfully Logged In!";
+        registerMsg.innerHTML = msg;
     }else{
         registerMsg.className = "registered-msg reg-error"
-        registerMsg.innerHTML = "Username/Password is Incorrect!";
+        registerMsg.innerHTML = msg;
     }
 
 
@@ -63,6 +93,9 @@ function setError(el, msg)
 {
     const parentEl = el.parentElement;
     const errorMsg = parentEl.querySelector(".error-msg")
+
+    const inputField = parentEl.querySelector('.input-field')
+    inputField.className = msg.length != 0 ? "input-field input-error" : "input-field"
 
     errorMsg.innerHTML = msg;
 }

@@ -1,12 +1,23 @@
 *{
     margin: 0;
     padding: 0;
+    scroll-behavior: smooth;
 }
 
 :root{
     --theme-color: #00a88e;
     --text-color-light: white;
     --text-color-dark: black;
+    --text-theme-color: #00836f;
+}
+
+.text-highlight{
+    color: var(--text-theme-color);
+    /* color: white; */
+    text-transform: capitalize;
+    font-weight: 600;
+    box-shadow: 2px;
+    text-decoration: underline;
 }
 
 .navbar{
@@ -54,9 +65,6 @@
     background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2));
 }
 
-.hero .row .col-md-7{
-    /* background-color: red; */
-}
 
 .hero .col-md-5{
     background-image: url(./assets/images/hero-1.webp);
@@ -77,8 +85,112 @@
 
 }
 
-.business{
-    height: 50vh;
+#business-1{
+    color: var(--text-color-dark);
+    /* background-color: red; */
+}
+
+#business-1 .container{
+    text-align: center;
+}
+
+#business-1 .b-span-text{
+    font-size: 1.125rem;
+}
+
+#business-1 .row{
+    padding: 30px 0px;
+}
+
+#business-1 .col-md-4{
+    padding: 30px 0px;
+}
+
+#business-1 .row span{
+    color: #00836F;
+    font-size: 1.135rem;
+    font-weight: 600;
+}
+
+
+#business-2{
+    background: linear-gradient(360deg, #1d1d1b 8.55%, #1e2b2f 64.15%),#fff;
+    color: var(--text-color-light);
+}
+
+
+#business-2 .b-span-text{
+    font-size: 1.125rem;
+}
+
+
+#business-2 .row{
+    padding-top: 30px;
+    padding-bottom: 30px;
+    text-align: center;
+}
+
+#business-2 .col-md-4{
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+
+#business-2 .row span{
+    color: #00836F;
+    font-size: 1.135rem;
+    font-weight: 600;
+    display: block;
+}
+
+.btn-theme{
+    border-radius: 5px;
+    background-color: var(--theme-color); 
+    margin-top: 10px;
+}
+
+.btn-theme:hover{
+    color: white;
     background-color: var(--theme-color);
 }
 
+
+#services, #about-us{
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+
+#about-us{
+    /* height: 100vh; */
+    background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url(./assets/images/about.webp);
+    color: var(--text-color-light);
+}
+
+#service_image{
+    height: 350px;
+    background-image: url(./assets/images/services-1.png);
+    background-size: cover;
+    background-position: center;
+}
+
+#services .card-group, #services .card{
+    border: none;
+}
+
+#services li{
+    font-size: 14px;
+    font-weight: 600;
+}
+
+#about-us .row{
+    margin-left: 10%;
+    margin-right: 10%;
+}
+
+#about-us blockquote{
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+#about-us .quote{
+    font-size: 3rem;
+}
